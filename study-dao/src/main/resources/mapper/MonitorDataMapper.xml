@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.conan.dao.mapper.MonitorDataMapper">
+    <resultMap id="BaseResultMap" type="com.conan.dao.entity.MonitorData">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="indexCode" jdbcType="VARCHAR" property="indexCode"/>
+        <result column="dimension" jdbcType="VARCHAR" property="dimension"/>
+        <result column="period" jdbcType="INTEGER" property="period"/>
+        <result column="timeString" jdbcType="VARCHAR" property="timeString"/>
+        <result column="value" jdbcType="DECIMAL" property="value"/>
+        <result column="createdUser" jdbcType="VARCHAR" property="createdUser"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updatedUser" jdbcType="VARCHAR" property="updatedUser"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+
+    <select id="select" parameterType="com.conan.dao.entity.MonitorData" resultMap="BaseResultMap">
+        select
+              *
+        from monitor_data
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="indexCode != null">
+                and indexCode = #{indexCode}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

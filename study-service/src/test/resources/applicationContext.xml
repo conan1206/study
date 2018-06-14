@@ -4,11 +4,22 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 			           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
-    <bean id="testDao" class="com.conan.dao.impl.TestDaoImpl"></bean>
 
-    <bean id="testService" class="com.conan.service.impl.TestServiceImpl">
-        <property name="testDao" ref="testDao"></property>
+    <!--配置Bean的后置处理器-->
+    <bean id="beanPostProcessor" class="com.conan.service.MyBeanPostProcessor">
     </bean>
 
+    <!--配置instantiationAwareBeanPostProcessor-->
+    <bean id="instantiationAwareBeanPostProcessor" class="com.conan.service.MyInstantiationAwareBeanPostProcessor">
+    </bean>
+
+    <!--配置BeanFactory的后置处理器-->
+    <bean id="beanFactoryPostProcessor" class="com.conan.service.MyBeanFactoryPostProcessor">
+    </bean>
+
+    <bean id="studentBean" class="com.conan.service.StudentBean" init-method="myInit" destroy-method="myDestroy" scope="singleton">
+        <property name="name" value="yanxiao"></property>
+        <property name="age" value="21"></property>
+    </bean>
 
 </beans>

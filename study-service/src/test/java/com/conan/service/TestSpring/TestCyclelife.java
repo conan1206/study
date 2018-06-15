@@ -1,4 +1,4 @@
-package com.conan.service;
+package com.conan.service.TestSpring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

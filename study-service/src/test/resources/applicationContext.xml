@@ -5,6 +5,17 @@
 			           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
 
+    <bean id="studentBean" class="com.conan.service.StudentBean" init-method="myInit" destroy-method="myDestroy" scope="singleton">
+        <property name="name" value="yanxiao"></property>
+        <property name="age" value="21"></property>
+    </bean>
+
+    <bean id="teacherBean" class="com.conan.service.TeacherBean">
+        <property name="name" value="conan"></property>
+        <property name="age" value="26"></property>
+        <property name="studentBean" ref="studentBean"></property>
+    </bean>
+
     <!--配置Bean的后置处理器-->
     <bean id="beanPostProcessor" class="com.conan.service.MyBeanPostProcessor">
     </bean>
@@ -15,11 +26,6 @@
 
     <!--配置BeanFactory的后置处理器-->
     <bean id="beanFactoryPostProcessor" class="com.conan.service.MyBeanFactoryPostProcessor">
-    </bean>
-
-    <bean id="studentBean" class="com.conan.service.StudentBean" init-method="myInit" destroy-method="myDestroy" scope="singleton">
-        <property name="name" value="yanxiao"></property>
-        <property name="age" value="21"></property>
     </bean>
 
 </beans>

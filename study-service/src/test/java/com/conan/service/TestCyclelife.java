@@ -14,8 +14,11 @@ public class TestCyclelife {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         System.out.println("-------------------【容器初始化成功】------------------");
         //得到studentBean，并显示其信息
-        StudentBean studentBean = context.getBean("studentBean",StudentBean.class);
+        StudentBean studentBean = context.getBean("studentBean", StudentBean.class);
         System.out.println(studentBean);
+        //得到teacherBean，并显示其信息
+        TeacherBean teacherBean = context.getBean("teacherBean", TeacherBean.class);
+        System.out.println(teacherBean);
 
         System.out.println("--------------------【销毁容器】----------------------");
         ((ClassPathXmlApplicationContext)context).registerShutdownHook();

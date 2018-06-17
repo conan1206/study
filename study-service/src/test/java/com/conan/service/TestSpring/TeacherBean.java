@@ -29,6 +29,10 @@ public class TeacherBean {
         this.studentBean = studentBean;
     }
 
+    public TeacherBean(){
+        System.out.println("【Bean构造方法】老师类的无参构造方法");
+    }
+
     @Override
     public String toString() {
         return "TeacherBean{" +

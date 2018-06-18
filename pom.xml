@@ -15,6 +15,7 @@
         <maven.compile.encoding>UTF-8</maven.compile.encoding>
         <jdk.version>1.8</jdk.version>
         <spring.version>4.3.6.RELEASE</spring.version>
+        <aspectjweaver.version>1.8.9</aspectjweaver.version>
         <junit.version>4.12</junit.version>
         <mysql.version>5.1.45</mysql.version>
         <mybatis.version>3.1.1</mybatis.version>
@@ -47,6 +48,12 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectjweaver.version}</version>
             </dependency>
 
             <dependency>

@@ -1,4 +1,4 @@
-package com.conan.service.TestSpring;
+package com.conan.service.TestSpringIOC;
 
 public class TeacherBean {
     private String name;

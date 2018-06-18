@@ -10,27 +10,27 @@
 
     <context:property-placeholder location="classpath:test.properties" />
 
-    <bean id="studentBean" class="com.conan.service.TestSpring.StudentBean" init-method="myInit" destroy-method="myDestroy" scope="singleton">
+    <bean id="studentBean" class="com.conan.service.TestSpringIOC.StudentBean" init-method="myInit" destroy-method="myDestroy" scope="singleton">
         <property name="name" value="${studentBean.name}"></property>
         <property name="age" value="${studentBean.age}"></property>
     </bean>
 
-    <bean id="teacherBean" class="com.conan.service.TestSpring.TeacherBean">
+    <bean id="teacherBean" class="com.conan.service.TestSpringIOC.TeacherBean">
         <property name="name" value="conan"></property>
         <property name="age" value="26"></property>
         <property name="studentBean" ref="studentBean"></property>
     </bean>
 
     <!--配置Bean的后置处理器-->
-    <bean id="beanPostProcessor" class="com.conan.service.TestSpring.MyBeanPostProcessor">
+    <bean id="beanPostProcessor" class="com.conan.service.TestSpringIOC.MyBeanPostProcessor">
     </bean>
 
     <!--配置instantiationAwareBeanPostProcessor-->
-    <bean id="instantiationAwareBeanPostProcessor" class="com.conan.service.TestSpring.MyInstantiationAwareBeanPostProcessor">
+    <bean id="instantiationAwareBeanPostProcessor" class="com.conan.service.TestSpringIOC.MyInstantiationAwareBeanPostProcessor">
     </bean>
 
     <!--配置BeanFactory的后置处理器-->
-    <bean id="beanFactoryPostProcessor" class="com.conan.service.TestSpring.MyBeanFactoryPostProcessor">
+    <bean id="beanFactoryPostProcessor" class="com.conan.service.TestSpringIOC.MyBeanFactoryPostProcessor">
     </bean>
 
 </beans>

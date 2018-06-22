@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
     public MyBeanPostProcessor(){
-        System.out.println("【BeanPostProcessor接口】调用BeanPostProcessor的构造方法");
+        System.out.println("【BeanPostProcessor接口】构造方法");
     }
 
     @Override

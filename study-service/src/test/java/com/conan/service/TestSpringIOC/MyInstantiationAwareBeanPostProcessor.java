@@ -14,7 +14,7 @@ import java.beans.PropertyDescriptor;
 public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter {
 
     public MyInstantiationAwareBeanPostProcessor() {
-        System.out.println("【InstantiationAwareBeanPostProcessor接口】调用InstantiationAwareBeanPostProcessor构造方法");
+        System.out.println("【InstantiationAwareBeanPostProcessor接口】构造方法");
     }
 
     /**
@@ -22,7 +22,7 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
      */
     @Override
     public Object postProcessBeforeInstantiation(Class beanClass, String beanName) throws BeansException {
-        System.out.println("【InstantiationAwareBeanPostProcessor接口】调用InstantiationAwareBeanPostProcessor接口的postProcessBeforeInstantiation方法");
+        System.out.println("【InstantiationAwareBeanPostProcessor接口】postProcessBeforeInstantiation方法");
         return null;
     }
 
@@ -30,8 +30,20 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
      * 实例化Bean之后调用
      */
     @Override
+    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+        System.out.println("【InstantiationAwareBeanPostProcessor接口】postProcessAfterInstantiation");
+        return true;
+    }
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("【InstantiationAwareBeanPostProcessor接口】调用postProcessBeforeInitialization方法，这里可对"+beanName+"的属性进行更改。");
+        return bean;
+    }
+
+    @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("【InstantiationAwareBeanPostProcessor接口】调用InstantiationAwareBeanPostProcessor接口的postProcessAfterInitialization方法");
+        System.out.println("【InstantiationAwareBeanPostProcessor接口】调用postProcessAfterInitialization方法，这里可对"+beanName+"的属性进行更改。");
         return bean;
     }
 
@@ -41,7 +53,7 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
     @Override
     public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName)
             throws BeansException {
-        System.out.println("【InstantiationAwareBeanPostProcessor接口】调用InstantiationAwareBeanPostProcessor接口的postProcessPropertyValues方法");
+        System.out.println("【InstantiationAwareBeanPostProcessor接口】postProcessPropertyValues方法");
         return pvs;
     }
 }

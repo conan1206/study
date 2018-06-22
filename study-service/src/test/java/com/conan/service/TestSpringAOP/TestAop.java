@@ -9,8 +9,11 @@ public class TestAop {
     @Test
     public void testAop(){
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext-AOP.xml");
-        CommonService commonService = context.getBean("commonService", CommonService.class);
-        commonService.insert();
+//        CommonService commonService = context.getBean("commonService", CommonService.class);
+//        commonService.insert();
+
+        TestBeanInf testBean = context.getBean("test", TestBeanInf.class);
+        testBean.test();
     }
 
 }

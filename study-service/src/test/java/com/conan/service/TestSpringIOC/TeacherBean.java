@@ -30,7 +30,7 @@ public class TeacherBean {
     }
 
     public TeacherBean(){
-        System.out.println("【Bean构造方法】老师类的无参构造方法");
+        System.out.println("【TeacherBean构造方法】无参构造方法");
     }
 
     @Override

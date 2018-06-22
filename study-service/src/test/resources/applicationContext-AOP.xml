@@ -11,16 +11,20 @@
 			           http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <bean id="commonService" class="com.conan.service.TestSpringAOP.CommonServiceImpl"></bean>
+    <!--<bean id="commonService" class="com.conan.service.TestSpringAOP.CommonServiceImpl" scope="prototype"></bean>-->
 
-    <bean id="transactionHandler" class="com.conan.service.TestSpringAOP.TransactionHandler"></bean>
+    <!--<bean id="transactionHandler" class="com.conan.service.TestSpringAOP.TransactionHandler"></bean>-->
 
-    <aop:config>
-        <aop:aspect ref="transactionHandler">
-            <aop:pointcut id="transactionMethod" expression="execution(* com.conan.service.TestSpringAOP.*.*(..))"/>
-            <aop:before method="beginTransaction" pointcut-ref="transactionMethod" />
-            <aop:after method="closeTransaction" pointcut-ref="transactionMethod" />
-        </aop:aspect>
-    </aop:config>
+    <!--<aop:config>-->
+        <!--<aop:aspect ref="transactionHandler">-->
+            <!--<aop:pointcut id="transactionMethod" expression="execution(* com.conan.service.TestSpringAOP.*.*(..))"/>-->
+            <!--<aop:before method="beginTransaction" pointcut-ref="transactionMethod" />-->
+            <!--<aop:after method="closeTransaction" pointcut-ref="transactionMethod" />-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <aop:aspectj-autoproxy />
+    <bean id="test" class="com.conan.service.TestSpringAOP.TestBean" />
+    <bean class="com.conan.service.TestSpringAOP.AspectJTest" />
 
 </beans>

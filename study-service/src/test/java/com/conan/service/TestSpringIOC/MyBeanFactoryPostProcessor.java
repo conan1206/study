@@ -11,7 +11,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     public MyBeanFactoryPostProcessor() {
-        System.out.println("【BeanFactoryPostProcessor接口】调用BeanFactoryPostProcessor实现类构造方法");
+        System.out.println("【BeanFactoryPostProcessor接口】构造方法");
     }
 
     /**
@@ -20,7 +20,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
             throws BeansException {
-        System.out.println("【BeanFactoryPostProcessor接口】调用BeanFactoryPostProcessor接口的postProcessBeanFactory方法");
+        System.out.println("【BeanFactoryPostProcessor接口】postProcessBeanFactory方法");
         BeanDefinition beanDefinition = beanFactory.getBeanDefinition("studentBean");
         beanDefinition.getPropertyValues().addPropertyValue("age", "21");
     }

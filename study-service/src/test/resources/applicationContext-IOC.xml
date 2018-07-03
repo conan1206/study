@@ -22,15 +22,15 @@
     </bean>
 
     <!--配置Bean的后置处理器-->
-    <bean id="beanPostProcessor" class="com.conan.service.TestSpringIOC.MyBeanPostProcessor">
+    <bean id="myBeanPostProcessor" class="com.conan.service.TestSpringIOC.MyBeanPostProcessor">
     </bean>
 
     <!--配置instantiationAwareBeanPostProcessor-->
-    <bean id="instantiationAwareBeanPostProcessor" class="com.conan.service.TestSpringIOC.MyInstantiationAwareBeanPostProcessor">
+    <bean id="myInstantiationAwareBeanPostProcessor" class="com.conan.service.TestSpringIOC.MyInstantiationAwareBeanPostProcessor">
     </bean>
 
     <!--配置BeanFactory的后置处理器-->
-    <bean id="beanFactoryPostProcessor" class="com.conan.service.TestSpringIOC.MyBeanFactoryPostProcessor">
+    <bean id="myBeanFactoryPostProcessor" class="com.conan.service.TestSpringIOC.MyBeanFactoryPostProcessor">
     </bean>
 
 </beans>

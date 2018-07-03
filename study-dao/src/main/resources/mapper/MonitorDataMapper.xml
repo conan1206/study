@@ -14,7 +14,7 @@
         <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
     </resultMap>
 
-    <select id="select" parameterType="com.conan.dao.entity.MonitorData" resultMap="BaseResultMap">
+    <select id="selectUseXml" parameterType="com.conan.dao.entity.MonitorData" resultMap="BaseResultMap">
         select
               *
         from monitor_data

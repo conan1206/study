@@ -12,8 +12,6 @@
        				   http://www.springframework.org/schema/jee
        				   http://www.springframework.org/schema/jee/spring-jee.xsd">
 
-    <!--<context:property-placeholder location="classpath*:*.properties"/>-->
-
     <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://10.37.59.34:3306/csirmws?generateSimpleParameterMetadata=true&amp;characterEncoding=utf-8"/>
@@ -28,7 +26,7 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <!--<property name="mapperLocations" value="classpath:mapper/*.xml"/>-->
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

@@ -8,9 +8,10 @@ public class TestCountDownLatch {
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
-        CountDownLatch countDownLatch = new CountDownLatch(10);
+        CountDownLatch countDownLatch = new CountDownLatch(7);
 
         for(int i = 0; i < 10; i++){
+            final int j = i;
             executorService.submit(new Runnable() {
                 @Override
                 public void run() {
@@ -19,15 +20,26 @@ public class TestCountDownLatch {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("处理了一个任务");
-                    countDownLatch.countDown();
+                    if(j == 5 || j == 7 || j == 9){
+                        try {
+                            System.out.println("任务park");
+                            countDownLatch.await();
+                            System.out.println("任务unpark");
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
+                        System.out.println("处理了一个任务");
+                        countDownLatch.countDown();
+                    }
+
                 }
             });
         }
 
-        System.out.println("多线程任务准备处理");
+        System.out.println("主线程任务park");
         countDownLatch.await();
-        System.out.println("多线程任务处理完成");
+        System.out.println("多线程任务unpark");
     }
 
 }

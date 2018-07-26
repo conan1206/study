@@ -9,23 +9,31 @@ public class TestReentrantLock {
     volatile static int a = 0;
 
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
         ReentrantLock reentrantLock = new ReentrantLock();
 
         for(int i = 0; i < 100; i++){
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    reentrantLock.lock();
+//                    reentrantLock.lock();
                     try {
-                        System.out.println("a: " + ++a);
+                        System.out.println(Thread.currentThread().getName() + " a: " + ++a);
                     }finally {
-                        reentrantLock.unlock();
+//                        reentrantLock.unlock();
                     }
                 }
             });
         }
 
+        final int COUNT_BITS = Integer.SIZE - 3;
+        System.out.println(-1 << COUNT_BITS);
+        System.out.println(0 << COUNT_BITS);
+        System.out.println(1 << COUNT_BITS);
+        System.out.println(2 << COUNT_BITS);
+        System.out.println(3 << COUNT_BITS);
+
+        System.out.println((1 << COUNT_BITS) - 1);
     }
 
 }

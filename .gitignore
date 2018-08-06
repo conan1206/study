@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+/.idea/
+/study-dao/target/
+/study-dao/study-dao.iml
+/study-service/target/
+/study-service/study-service.iml
+/study-web/target/
+/study-web/study-web.iml
+/study.iml

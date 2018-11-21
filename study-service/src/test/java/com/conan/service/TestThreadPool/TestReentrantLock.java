@@ -26,14 +26,22 @@ public class TestReentrantLock {
             });
         }
 
-        final int COUNT_BITS = Integer.SIZE - 3;
-        System.out.println(-1 << COUNT_BITS);
-        System.out.println(0 << COUNT_BITS);
-        System.out.println(1 << COUNT_BITS);
-        System.out.println(2 << COUNT_BITS);
-        System.out.println(3 << COUNT_BITS);
-
-        System.out.println((1 << COUNT_BITS) - 1);
+//        final int COUNT_BITS = Integer.SIZE - 3;
+//        final int CAPACITY   = (1 << COUNT_BITS) - 1;
+//
+//        // runState is stored in the high-order bits
+//        final int RUNNING    = -1 << COUNT_BITS;
+//        final int SHUTDOWN   =  0 << COUNT_BITS;
+//        final int STOP       =  1 << COUNT_BITS;
+//        final int TIDYING    =  2 << COUNT_BITS;
+//        final int TERMINATED =  3 << COUNT_BITS;
+//
+//        System.out.println("CAPACITY: " + CAPACITY);
+//        System.out.println("RUNNING: " + RUNNING);
+//        System.out.println("SHUTDOWN: " + SHUTDOWN);
+//        System.out.println("STOP: " + STOP);
+//        System.out.println("TIDYING: " + TIDYING);
+//        System.out.println("TERMINATED: " + TERMINATED);
     }
 
 }

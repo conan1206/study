@@ -27,6 +27,7 @@
         <logback-classic.version>1.2.3</logback-classic.version>
         <logback-core.version>1.2.3</logback-core.version>
         <logback-access.version>1.2.3</logback-access.version>
+        <netty.version>5.0.0.Alpha1</netty.version>
     </properties>
 
     <dependencyManagement>
@@ -153,6 +154,13 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-access</artifactId>
                 <version>${logback-access.version}</version>
+            </dependency>
+
+            <!-- netty -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
             </dependency>
 
         </dependencies>

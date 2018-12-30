@@ -20,7 +20,7 @@
     <bean id="loggingInitialization" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="arguments">
             <list>
-                <value>classpath:log/log_${envName}.xml</value>
+                <value>classpath:log/logback.xml</value>
             </list>
         </property>
     </bean>

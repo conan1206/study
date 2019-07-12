@@ -9,22 +9,31 @@ public class TestReentrantLock {
     volatile static int a = 0;
 
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
         ReentrantLock reentrantLock = new ReentrantLock();
 
-        for(int i = 0; i < 100; i++){
+        for (int i = 0; i < 4; i++) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-//                    reentrantLock.lock();
+                    System.out.println(Thread.currentThread().getName() + " a: " + ++a);
+                    reentrantLock.lock();
+                    System.out.println(Thread.currentThread().getName() + " a(中间): "+ a + " " + reentrantLock.getHoldCount());
                     try {
-                        System.out.println(Thread.currentThread().getName() + " a: " + ++a);
-                    }finally {
-//                        reentrantLock.unlock();
+                        try {
+                            Thread.sleep(1000 * 1);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } finally {
+                        reentrantLock.unlock();
+                        System.out.println(Thread.currentThread().getName() + " a(结束): " + a + " " + reentrantLock.getHoldCount());
                     }
                 }
             });
         }
+
+        System.out.println(123);
 
 //        final int COUNT_BITS = Integer.SIZE - 3;
 //        final int CAPACITY   = (1 << COUNT_BITS) - 1;

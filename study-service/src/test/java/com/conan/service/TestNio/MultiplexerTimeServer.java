@@ -42,6 +42,7 @@ public class MultiplexerTimeServer implements Runnable {
         while(!stop){
             try {
                 selector.select(1000);
+                System.out.println("阻塞了吗");
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
                 Iterator<SelectionKey> it = selectionKeys.iterator();
                 SelectionKey key = null;

@@ -37,7 +37,7 @@ public class EchoServer {
                             ch.pipeline().addLast(new EchoServerHandler());
                         }
                     });
-            ChannelFuture f = b.bind(port).sync();
+            ChannelFuture f = b.bind(port);
             f.channel().closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();
@@ -46,7 +46,7 @@ public class EchoServer {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        int port = 8080;
+        int port = 8090;
         if(args != null && args.length > 0) {
             try {
                 port = Integer.valueOf(args[0]);

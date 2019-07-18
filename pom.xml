@@ -28,6 +28,7 @@
         <logback-core.version>1.2.3</logback-core.version>
         <logback-access.version>1.2.3</logback-access.version>
         <netty.version>5.0.0.Alpha1</netty.version>
+        <redis.version>2.6.0</redis.version>
     </properties>
 
     <dependencyManagement>
@@ -161,6 +162,13 @@
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
+            </dependency>
+
+            <!--redis-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis.version}</version>
             </dependency>
 
         </dependencies>

@@ -32,17 +32,21 @@ public class TestCyclicBarrier {
 
     public static void main(String[] args) {
         int threadNum = 5;
+        
         CyclicBarrier barrier = new CyclicBarrier(threadNum, new Runnable() {
-
             @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName() + " 完成最后任务");
             }
         });
 
+        System.out.println(123);
+
         for (int i = 0; i < threadNum; i++) {
             new TaskThread(barrier).start();
         }
+
+        System.out.println(234);
     }
 
 

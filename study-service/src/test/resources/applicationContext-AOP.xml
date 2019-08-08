@@ -23,8 +23,10 @@
         <!--</aop:aspect>-->
     <!--</aop:config>-->
 
+    <context:component-scan base-package="com.conan.service.TestSpringAOP" />
+
     <aop:aspectj-autoproxy />
-    <bean id="test" class="com.conan.service.TestSpringAOP.TestBean" />
-    <bean class="com.conan.service.TestSpringAOP.AspectJTest" />
+    <!--<bean id="test" class="com.conan.service.TestSpringAOP.TestBean" />-->
+    <!--<bean class="com.conan.service.TestSpringAOP.AspectJTest" />-->
 
 </beans>

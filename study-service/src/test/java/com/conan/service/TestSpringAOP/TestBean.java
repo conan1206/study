@@ -1,6 +1,9 @@
 package com.conan.service.TestSpringAOP;
 
-public class TestBean implements  TestBeanInf {
+import org.springframework.stereotype.Service;
+
+@Service("test")
+public class TestBean implements TestBeanInf {
 
     private String testStr = "testStr";
 
@@ -12,6 +15,7 @@ public class TestBean implements  TestBeanInf {
         this.testStr = testStr;
     }
 
+    @Auth
     public void test(){
         System.out.println("test");
     }
